@@ -122,12 +122,13 @@ public class SafeInput
                 pipe.nextLine();
                 if (retVal >= low && retVal <= high)
                 {
-                    done = true;
+                    done= true;
                 }
                 else
                 {
                     System.out.println("You must enter a value within the range [" + low + "-"+ high + "] ");
                 }
+
             }
             else
             {
