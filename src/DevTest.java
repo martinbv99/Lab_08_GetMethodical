@@ -10,9 +10,8 @@ public class DevTest
         double salary = 0;
         int favNum = 0;
         double constrained = 0;
-        boolean YN = false;
-
-
+        boolean wantToQuit = false;
+        String SSN = "";
 
 
         /*
@@ -34,10 +33,14 @@ public class DevTest
         constrained = getRangedDouble(in, "Enter the constrained double [100 - 100,000]" , 100, 100000);
         System.out.println("Constrained is " + constrained);
 
-         */
 
-        YN = getYNConfirm(in, "Do you think you are super cool? [Y/N]");
-         System.out.println("You said " + YN );
+
+        wantToQuit = getYNConfirm(in, "Do you think you are super cool? [Y/N]");
+         System.out.println("You said " + wantToQuit ); */
+
+        SSN = getRegExString(in, "Enter your SSN","^\\d{3}-\\d{2}-\\d{4}$");
+
+
 
 
 
@@ -250,6 +253,25 @@ public class DevTest
 
 
         }while(!done);
+
+        return retVal;
+    }
+    public static String getRegExString(Scanner pipe, String prompt, String regEx)
+    {
+        String retVal = "";
+        boolean done = false;
+
+        do {
+            System.out.print(prompt + ": " );
+            retVal = pipe.nextLine();
+            if (retVal.matches(regEx)){
+                done = true;}
+            else
+            {
+                System.out.println("You must enter a matching expression bruhhh "  + "not " + retVal);
+            }
+        }while(!done);
+
 
         return retVal;
     }

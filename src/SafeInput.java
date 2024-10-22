@@ -228,6 +228,26 @@ public class SafeInput
         return retVal;
     }
 
+    public static String getRegExString(Scanner pipe, String prompt, String regEx)
+    {
+        String retVal = "";
+        boolean done = false;
+
+        do {
+            System.out.print(prompt + ": ");
+            retVal = pipe.nextLine();
+            if (retVal.matches(regEx)){
+                done = true;}
+            else
+            {
+                System.out.println("You must enter a matching expression bruhhh, not " + retVal);
+            }
+        }while(!done);
+
+
+        return retVal;
+    }
+
 
 
 }
